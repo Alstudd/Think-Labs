@@ -11,6 +11,7 @@ import React, { useState, useEffect } from "react";
 
 export default function CoursePage({ params }) {
 	const [data, setData] = useState();
+	const [currPage, setcurrPage] = useState(0);
 	const id = params.id;
 	console.log(id);
 
@@ -30,7 +31,9 @@ export default function CoursePage({ params }) {
 			<div>
 				<div className="ml-[400px] px-8">
 					<div className="flex">
-						<MainVideoSummary />
+						<MainVideoSummary
+							videoId={data[0].children[0].videoId}
+						/>
 						{/* <QuizCards /> */}
 					</div>
 
