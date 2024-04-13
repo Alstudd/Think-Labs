@@ -1,18 +1,17 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
+import { getTranscript } from "@/lib/youtube";
+import { YoutubeTranscript } from "youtube-transcript";
 
 export default function page() {
 	const [video, setVideo] = useState();
 
 	const getYtData = async () => {
-		const res = await axios.post("/api/course/createChapters", {
-			title: video,
+		const res = await YoutubeTranscript.fetchTranscript("d1lhIUPXnko", {
+			lang: "en",
 		});
-		const id = res.data.op;
-
-		const res2 = await axios.post("/api/getCourses", { courseId: id });
-		console.log(res.data);
+		console.log(res);
 	};
 
 	return (
