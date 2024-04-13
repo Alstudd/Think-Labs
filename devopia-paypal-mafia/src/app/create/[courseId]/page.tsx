@@ -20,14 +20,7 @@ const CreateChapters = async ({ params: { courseId } }: Props) => {
     const course = await prisma.course.findUnique({
         where: {
             id: courseId,
-        },
-        include: {
-            units: {
-                include: {
-                    chapters: true,
-                },
-            },
-        },
+        }
     });
     if (!course) {
         return redirect("/create");
@@ -48,7 +41,7 @@ const CreateChapters = async ({ params: { courseId } }: Props) => {
                         click the Button to confirm and continue
                     </div>
                 </div>
-                <ConfirmChapters course={course} />
+                <ConfirmChapters course={courseId} />
             </div>
         </div>
     );

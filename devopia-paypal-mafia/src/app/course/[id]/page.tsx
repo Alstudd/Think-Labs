@@ -3,68 +3,68 @@ import MainVideoSummary from "@/components/MainVideoSummary";
 import Navbar from "@/components/Navbar";
 import QuizCards from "@/components/QuizCards";
 import { prisma } from "@/lib/db";
+import axios from "axios";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
-type Props = {
-  params: {
-    slug: string[];
-  };
-};
+// type Props = {
+//   params: {
+//     slug: string[];
+//   };
+// };
 
-const CoursePage = async ({ params: { slug } }: Props) => {
-  const [courseId, unitIndexParam, chapterIndexParam] = slug;
-  const course = await prisma.course.findUnique({
-    where: { id: courseId },
-    include: {
-      units: {
-        include: {
-          chapters: {
-            include: { quests: true },
-          },
-        },
-      },
-    },
-  });
-  if (!course) {
-    return redirect("/gallery");
-  }
-  let unitIndex = parseInt(unitIndexParam);
-  let chapterIndex = parseInt(chapterIndexParam);
+const CoursePage = async ({params}) => {
+  const id = params.id
+  console.log(id)
+  const res = await axios.post("/api/getCourses", {courseId: id})
+//   const [courseId, chapterIndexParam, videoIndexParam] = slug;
+//   const course = await prisma.course.findUnique({
+//     where: { id: courseId },
+//     include: {
+//       chapters: {
+//         include: {
+//           videos: {
+//             include: { quests: true },
+//           },
+//         },
+//       },
+//     },
+//   });
+//   if (!course) {
+//     return redirect("/gallery");
+//   }
+//   let chapterIndex = parseInt(chapterIndexParam);
+//   let videoIndex = parseInt(videoIndexParam);
 
-  const unit = course.units[unitIndex];
-  if (!unit) {
-    return redirect("/gallery");
-  }
-  const chapter = unit.chapters[chapterIndex];
-  if (!chapter) {
-    return redirect("/gallery");
-  }
-  const nextChapter = unit.chapters[chapterIndex + 1];
-  const prevChapter = unit.chapters[chapterIndex - 1];
+//   const chapter = course.chapters[chapterIndex];
+//   if (!chapter) {
+//     return redirect("/gallery");
+//   }
+//   const video = chapter.videos[videoIndex];
+//   if (!video) {
+//     return redirect("/gallery");
+//   }
+//   const nextChapter = chapter.videos[videoIndex + 1];
+//   const prevChapter = chapter.videos[videoIndex - 1];
   return (
     <div>
       <Navbar />
-      <CourseSideBar course={course} currentChapterId={chapter.id} />;
+      <CourseSideBar data={res.data} />
       <div>
         <div className="ml-[400px] px-8">
           <div className="flex">
-            <MainVideoSummary
-              chapter={chapter}
-              chapterIndex={chapterIndex}
-              unit={unit}
-              unitIndex={unitIndex}
-            />
-            <QuizCards chapter={chapter} />
+            <MainVideoSummary />
+            {/* <QuizCards /> */}
           </div>
 
           <div className="flex-[1] h-[1px] mt-4 text-gray-500 bg-gray-500" />
           <div className="flex pb-8">
-            {prevChapter && (
+            {/* {prevChapter && ( */}
               <Link
-                href={`/course/${course.id}/${unitIndex}/${chapterIndex - 1}`}
+                // href={`/course/${course.id}/${chapterIndex}/${videoIndex - 1}`}
+                href={"#"}
                 className="flex mt-4 mr-auto w-fit"
               >
                 <div className="flex items-center">
@@ -74,16 +74,18 @@ const CoursePage = async ({ params: { slug } }: Props) => {
                       Previous
                     </span>
                     <span className="text-xl font-bold">
-                      {prevChapter.name}
+                      {/* {prevChapter.name} */}
+                      Prev Name
                     </span>
                   </div>
                 </div>
               </Link>
-            )}
+            {/* )} */}
 
-            {nextChapter && (
+            {/* {nextChapter && ( */}
               <Link
-                href={`/course/${course.id}/${unitIndex}/${chapterIndex + 1}`}
+                // href={`/course/${course.id}/${chapterIndex}/${videoIndex + 1}`}
+                href={"#"}
                 className="flex mt-4 ml-auto w-fit"
               >
                 <div className="flex items-center">
@@ -92,13 +94,14 @@ const CoursePage = async ({ params: { slug } }: Props) => {
                       Next
                     </span>
                     <span className="text-xl font-bold">
-                      {nextChapter.name}
+                      {/* {nextChapter.name} */}
+                      Next Name
                     </span>
                   </div>
                   <ChevronRight className="w-6 h-6 ml-1" />
                 </div>
               </Link>
-            )}
+            {/* )} */}
           </div>
         </div>
       </div>
