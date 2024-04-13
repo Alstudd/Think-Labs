@@ -33,7 +33,7 @@ const CreateChapters = async ({ params: { courseId } }: Props) => {
         return redirect("/create");
     }
     return (
-        <div>
+        <div className="pt-20">
             <Navbar />
             <div className="flex flex-col items-start max-w-xl mx-auto my-16">
                 <h5 className="text-sm uppercase text-seconday-foreground/60">
