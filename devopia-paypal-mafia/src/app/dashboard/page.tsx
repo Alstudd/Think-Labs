@@ -25,7 +25,7 @@ const page = async (props: Props) => {
   return (
     <div>
       <Navbar />
-      <main className="p-8 mx-auto max-w-7xl">
+      <main className="p-8 pt-20 mx-auto max-w-7xl">
         <div className="flex items-center">
           <h2 className="mr-2 text-3xl font-bold tracking-tight">Dashboard</h2>
           <DetailsDialog />

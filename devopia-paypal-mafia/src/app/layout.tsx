@@ -9,8 +9,8 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Learn Blocks 🔥!",
-  description: "Learn Blocks is a platform for creating questions using AI!",
+  title: "ThinkLabs",
+  description: "ThinkLabs, Welcome to the future of Fun Education",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "antialiased min-h-screen pt-20")}>
+      <body className={cn(inter.className, "antialiased min-h-screen")}>
         <Providers>
           {/* <Navbar /> */}
           {children}
