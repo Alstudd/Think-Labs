@@ -25,7 +25,7 @@ const CourseSideBar = ({ data }) => {
 								</h2>
 								{/* {videos.map((video, index) => { */}
 								{/* return ( */}
-								{ele.children.map((cele) => {
+								{ele.children.map((cele) => (
 									<div>
 										<Link
 											// href={`/course/${course.id}/${unitIndex}/${chapterIndex}`}
@@ -40,8 +40,8 @@ const CourseSideBar = ({ data }) => {
 										>
 											{cele.name}
 										</Link>
-									</div>;
-								})}
+									</div>
+								))}
 
 								{/* ); */}
 								{/* })} */}
