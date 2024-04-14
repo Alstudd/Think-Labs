@@ -9,71 +9,54 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 
 const bodyParser = z.object({
-	videoId: z.string(),
+	vScript: z.string(),
+	vName: z.string(),
 });
 
 export async function POST(req: Request, res: Response) {
 	try {
-		console.log("hello");
 		const body = await req.json();
-		const { videoId } = bodyParser.parse(body);
-		const video = await prisma.video.findUnique({
-			where: {
-				id: videoId,
-			},
-		});
-		if (!video) {
-			return NextResponse.json(
-				{
-					success: false,
-					error: "Chapter not found",
-				},
-				{ status: 404 }
-			);
-		}
-		console.log(video);
+		const { vScript, vName } = bodyParser.parse(body);
+		console.log("hello", vScript);
 		// const videoId = await searchYoutube(chapter.youtubeSearchQuery);
 		// let transcript = await getTranscript(video.videoId);
 		// let maxLength = 500; // let maxLength = 500; // let maxLength = 200;
 		// transcript = transcript.split(" ").slice(0, maxLength).join(" ");
-		console.log(videoId, video.transcript);
-		const { summary }: { summary: string } = await strict_output(
-			"You are an AI capable of summarising a youtube transcript",
-			"summarise in 250 words or less and do not talk of the sponsors or anything unrelated to the main topic, also do not introduce what the summary is about.\n" +
-				video.transcript,
-			{ summary: "summary of the transcript" }
-		);
+		// console.log(videoId, video.transcript);
+		
 
 		const questions = await getQuestionsFromTranscript(
-			video.transcript,
-			video.name
+			vScript,
+			vName
 		);
 
-		await prisma.quest.createMany({
-			data: questions.map((question) => {
-				let options = [
-					question.answer,
-					question.option1,
-					question.option2,
-					question.option3,
-				];
-				options = options.sort(() => Math.random() - 0.5);
-				return {
-					question: question.question,
-					answer: question.answer,
-					options: JSON.stringify(options),
-					videoId: videoId,
-				};
-			}),
-		});
+		return NextResponse.json({ success: true, questions });
 
-		await prisma.video.update({
-			where: { id: videoId },
-			data: {
-				videoId: videoId,
-				summary: summary,
-			},
-		});
+		// await prisma.quest.createMany({
+		// 	data: questions.map((question) => {
+		// 		let options = [
+		// 			question.answer,
+		// 			question.option1,
+		// 			question.option2,
+		// 			question.option3,
+		// 		];
+		// 		options = options.sort(() => Math.random() - 0.5);
+		// 		return {
+		// 			question: question.question,
+		// 			answer: question.answer,
+		// 			options: JSON.stringify(options),
+		// 			videoId: videoId,
+		// 		};
+		// 	}),
+		// });
+
+		// await prisma.video.update({
+		// 	where: { id: videoId },
+		// 	data: {
+		// 		videoId: videoId,
+		// 		summary: summary,
+		// 	},
+		// });
 
 		return NextResponse.json({ success: true });
 	} catch (error) {

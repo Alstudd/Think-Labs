@@ -2,14 +2,15 @@ import GalleryCourseCard from "@/components/GalleryCourseCard";
 import Navbar from "@/components/Navbar";
 import { prisma } from "@/lib/db";
 import React from "react";
+import { Chapter, Video } from "@prisma/client";
 
 type Props = {};
 
 const GalleryPage = async (props: Props) => {
     const courses = await prisma.course.findMany({
         include: {
-            units: {
-                include: { chapters: true },
+            Chapter : {
+                include: { Video: true },
             },
         },
     });

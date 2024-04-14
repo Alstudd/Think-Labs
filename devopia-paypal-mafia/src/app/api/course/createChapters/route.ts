@@ -5,6 +5,7 @@ import { strict_output } from "@/lib/courseGpt";
 import { prisma } from "@/lib/db";
 import { getAuthSession } from "@/lib/nextauth";
 import { searchYoutube } from "@/lib/youtube";
+import axios from "axios";
 // import { getUnsplashImage } from "@/lib/unsplash";
 // import { prisma } from "@/lib/db";
 
@@ -60,12 +61,19 @@ export async function POST(req: Request, res: Response) {
 							"https://thinklabs.azurewebsites.net/api/http_trigger",
 							{ videoId: vid }
 						);
+						const { summary }: { summary: string } = await strict_output(
+							"You are an AI capable of summarising a youtube transcript",
+							"summarise in 250 words or less and do not talk of the sponsors or anything unrelated to the main topic, also do not introduce what the summary is about.\n" +
+								transcript,
+							{ summary: "summary of the transcript" }
+						);
 						await prisma.video.create({
 							data: {
 								name: sv.youtube_search_query,
 								videoId: vid,
 								chapterId: chap.id,
 								transcript: transcript.data,
+                				summary: summary
 							},
 						});
 					})

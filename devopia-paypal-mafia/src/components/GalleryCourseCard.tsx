@@ -1,12 +1,12 @@
-import { Chapter, Course, Unit } from "@prisma/client";
+import { Chapter, Course, Video } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type Props = {
   course: Course & {
-    units: (Unit & {
-      chapters: Chapter[];
+    chapters: (Chapter & {
+      videos: Video[];
     })[];
   };
 };
@@ -36,14 +36,14 @@ const GalleryCourseCard = async ({ course }: Props) => {
         <div className="p-4">
           <h4 className="text-sm text-secondary-foreground/60">Units</h4>
           <div className="space-y-1">
-            {course.units.map((unit, unitIndex) => {
+            {course.chapters?.map((chapter, chapterIndex) => {
               return (
                 <Link
-                  href={`/course/${course.id}/${unitIndex}/0`}
-                  key={unit.id}
+                  href={`/course/${course.id}/${chapterIndex}/0`}
+                  key={chapter.id}
                   className="block underline w-fit"
                 >
-                  {unit.name}
+                  {chapter.name}
                 </Link>
               );
             })}
