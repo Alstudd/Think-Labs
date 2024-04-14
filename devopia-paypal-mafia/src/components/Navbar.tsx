@@ -5,6 +5,7 @@ import UserAccountNav from "./UserAccountNav";
 import { ThemeToggle } from "./ThemeToggle";
 import { getAuthSession } from "@/lib/nextauth";
 import SignInButton from "./SignInButton";
+import { Flame } from "lucide-react";
 
 const Navbar = async () => {
 	const session = await getAuthSession();

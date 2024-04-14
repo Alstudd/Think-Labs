@@ -1,7 +1,7 @@
 import { cn } from "../../utils/cn";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
-import { Car } from "lucide-react";
+import { Car, Link } from "lucide-react";
 
 export function BentoGridSecondDemo() {
   return (
@@ -10,6 +10,7 @@ export function BentoGridSecondDemo() {
         <BentoGridItem
           key={i}
           title={item.title}
+          link={item.link}
           description={item.description}
           header={item.header}
           className={item.className}
@@ -27,29 +28,33 @@ const items = [
     title: "I got the Logic!!",
     description: "Solve puzzles with logic and critical thinking skills.",
     header: '/fruitGame.png',
+    link: '/logic',
     className: "md:col-span-2",
-    icon: <Car className="h-4 w-4 text-neutral-500" />,
+    icon: <Link className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Scramble It Up!!",
     description: "Unscramble words to test vocabulary and spelling skills.",
     header: '/memcards.jpeg',
+    link: '/scramble',
     className: "md:col-span-1",
-    icon: <Car className="h-4 w-4 text-neutral-500" />,
+    icon: <Link className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Memory Mania",
     description: "Flip cards to match pairs and improve memory retention.",
     header: '/memcards.jpeg',
+    link: '/memory-cards',
     className: "md:col-span-1",
-    icon: <Car className="h-4 w-4 text-neutral-500" />,
+    icon: <Link className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "The Power of Communication",
     description:
       "Understand the impact of effective communication in our lives.",
     header: '/fruitGame.png',
+    link: '/logic',
     className: "md:col-span-2",
-    icon: <Car className="h-4 w-4 text-neutral-500" />,
+    icon: <Link className="h-4 w-4 text-neutral-500" />,
   },
 ];
