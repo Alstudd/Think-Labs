@@ -47,8 +47,8 @@ model User {
   sessions      Session[]
   games         Game[]
   // notes Note[]
-  Course        Course[]
-  Strength      Strength[]
+  courses       Course[]
+  strengths     Strength[]
 
   @@map("users")
 }
@@ -110,19 +110,19 @@ model Course {
   image  String?
   userId String  @db.ObjectId
 
-  user    User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  Chapter Chapter[]
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  chapters Chapter[]
 
   @@map("courses")
 }
 
 model Chapter {
-  id       String     @id @default(auto()) @map("_id") @db.ObjectId
-  name     String
-  courseId String     @db.ObjectId
-  course   Course     @relation(fields: [courseId], references: [id])
-  Video    Video[]
-  Strength Strength[]
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  courseId  String     @db.ObjectId
+  course    Course     @relation(fields: [courseId], references: [id])
+  videos    Video[]
+  strengths Strength[]
 
   @@map("chapters")
 }
@@ -135,7 +135,7 @@ model Video {
   chapter    Chapter @relation(fields: [chapterId], references: [id])
   transcript String?
   summary    String?
-  Quest      Quest[]
+  quests     Quest[]
 
   @@map("videos")
 }

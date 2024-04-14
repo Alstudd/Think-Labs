@@ -6,7 +6,7 @@ export async function searchYoutube(searchQuery: string) {
 	// hello world => hello+world
 	searchQuery = encodeURIComponent(searchQuery);
 	const { data } = await axios.get(
-		`https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&q=${searchQuery}&videoDuration=medium&videoEmbeddable=true&type=video&maxResults=5`
+		`https://www.googleapis.com/youtube/v3/search?key=AIzaSyBvm7rD02N3bNGJLDq0PFe_poW4DVP4oRc&q=${searchQuery}&videoDuration=medium&videoEmbeddable=true&type=video&maxResults=5`
 	);
 	console.log(data);
 	if (!data || !data.items || data.items.length === 0) {
