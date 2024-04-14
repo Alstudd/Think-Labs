@@ -28,6 +28,7 @@ import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import LoadingQuestions from './LoadingQuestions';
+import Image from 'next/image';
 
 type Input = z.infer<typeof quizCreationSchema>
 
@@ -85,7 +86,9 @@ const QuizCreation = (props: Props) => {
         return <LoadingQuestions finished={finished} />
     }
     return (
-        <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+        <div className="my-16 py-16 flex justify-center items-center">
+            <div className='grid md:grid-cols-2'>
+                <Image src='/eddieNGamer.png' className='ml-16 my-10' width={300} height={300} alt='Eddie'/>
             <Card>
                 <CardHeader>
                     <CardTitle className="text-2xl font-bold">Quiz Creation</CardTitle>
@@ -172,6 +175,7 @@ const QuizCreation = (props: Props) => {
                     </Form>
                 </CardContent>
             </Card>
+            </div>
         </div>
     )
 }

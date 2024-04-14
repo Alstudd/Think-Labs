@@ -23,7 +23,7 @@ type Input = z.infer<typeof createChaptersSchema>;
 const CreateCourseForm = (props: Props) => {
   const [video, setVideo] = useState();
 
-	const getYtData = async (video) => {
+	const getYtData = async (video: string) => {
 		const res = await axios.post("/api/course/createChapters", {
 			title: video,
 		});

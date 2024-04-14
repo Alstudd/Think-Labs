@@ -1,3 +1,7 @@
+"use client";
+import "../styles/scramble.css"
+import { useEffect } from "react";
+
 export default function WordScramble() {
 	let words = [
 		{
@@ -94,7 +98,8 @@ export default function WordScramble() {
 		},
 	];
 
-	const wordText = document.querySelector(".word"),
+	useEffect(()=>{
+		const wordText = document.querySelector(".word"),
 		hintText = document.querySelector(".hint span"),
 		timeText = document.querySelector(".time b"),
 		inputField = document.querySelector("input"),
@@ -144,6 +149,7 @@ export default function WordScramble() {
 
 	refreshBtn.addEventListener("click", initGame);
 	checkBtn.addEventListener("click", checkWord);
+	}, [])
 
 	return (
 		<div class="container">

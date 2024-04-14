@@ -1,5 +1,5 @@
 "use client";
-import { Layout, Phone, UsersIcon, UsersRound } from "lucide-react";
+import { Bot, Layout, Phone, UsersIcon, UsersRound } from "lucide-react";
 import { Mail } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
@@ -48,6 +48,14 @@ const Navbar = () => {
                 <UsersRound />
               </a>
             </li>
+            <li>
+              <a
+                href="https://thinklabs-chatbot.vercel.app/"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+              >
+                <Bot />
+              </a>
+            </li>
           </ul>
 
           {/* Non Auth for Big Screen  */}
@@ -72,6 +80,14 @@ const Navbar = () => {
                   <UsersRound />
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://thinklabs-chatbot.vercel.app/"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                >
+                  <Bot />
+                </a>
+              </li>
               <button
                 onClick={(e) => {
                   e.preventDefault();
@@ -83,8 +99,6 @@ const Navbar = () => {
               </button>
             </ul>
           </div>
-
-          
         </div>
       </nav>
     </div>
