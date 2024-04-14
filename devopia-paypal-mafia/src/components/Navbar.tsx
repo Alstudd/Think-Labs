@@ -5,6 +5,7 @@ import UserAccountNav from "./UserAccountNav";
 import { ThemeToggle } from "./ThemeToggle";
 import { getAuthSession } from "@/lib/nextauth";
 import SignInButton from "./SignInButton";
+import { Flame } from "lucide-react";
 
 const Navbar = async () => {
   const session = await getAuthSession();
@@ -15,12 +16,15 @@ const Navbar = async () => {
         {/* Logo */}
         <Link href={"/"} className="flex items-center gap-2">
           <p className="rounded-lg border-2 border-b-4 border-r-4 border-black px-2 py-1 text-xl font-bold transition-all hover:-translate-y-[2px] md:block dark:border-white">
-            Learn Blocks
+            ThinkLabs
           </p>
         </Link>
         <div className="flex items-center">
           <ThemeToggle className="mr-4" />
-          <p className="text-lg font-bold text-gray-800 dark:text-white mr-4">Streak: 2 🔥</p>
+          <div className="flex flex-row mx-2 mr-4 my-auto">
+          <p className="text-lg font-bold text-gray-800 dark:text-white ">Streak: 2 </p>
+          <Flame size={20} className="my-auto mx-1 text-orange-500"/>
+          </div>
           {session?.user ? (
             <UserAccountNav user={session.user} />
           ) : (
