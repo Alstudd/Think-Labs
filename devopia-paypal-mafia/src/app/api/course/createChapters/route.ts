@@ -4,7 +4,7 @@ import { ZodError, z } from "zod";
 import { strict_output } from "@/lib/courseGpt";
 import { prisma } from "@/lib/db";
 import { getAuthSession } from "@/lib/nextauth";
-import {searchYoutube} from "@/lib/youtube"
+import { searchYoutube } from "@/lib/youtube";
 // import { getUnsplashImage } from "@/lib/unsplash";
 // import { prisma } from "@/lib/db";
 
@@ -35,35 +35,43 @@ export async function POST(req: Request, res: Response) {
 			}
 		);
 
-    const session = await getAuthSession();
+		const session = await getAuthSession();
 
-    const c = await prisma.course.create({
-      data:{
-        name: output_units.title,
-        userId: session.user.id
-      }
-    })
+		const c = await prisma.course.create({
+			data: {
+				name: output_units.title,
+				userId: session.user.id,
+			},
+		});
 
-    await Promise.all(output_units.chapters.map(async (v, i)=>{
-      let chap = await prisma.chapter.create({
-        data:{
-          name: v.chapter_title,
-          courseId: c.id
-        }
-      })
+		await Promise.all(
+			output_units.chapters.map(async (v, i) => {
+				let chap = await prisma.chapter.create({
+					data: {
+						name: v.chapter_title,
+						courseId: c.id,
+					},
+				});
 
-      await Promise.all(v.subtopics.map(async (sv,i)=>{
-        let vid = await searchYoutube(sv.youtube_search_query)
-        await prisma.video.create({
-          data:{
-            name: sv.youtube_search_query,
-            videoId: vid,
-            chapterId: chap.id,
-            transcript: ''
-          }
-        })
-      }))
-    }))
+				await Promise.all(
+					v.subtopics.map(async (sv, i) => {
+						let vid = await searchYoutube(sv.youtube_search_query);
+						let transcript = await axios.post(
+							"https://thinklabs.azurewebsites.net/api/http_trigger",
+							{ videoId: vid }
+						);
+						await prisma.video.create({
+							data: {
+								name: sv.youtube_search_query,
+								videoId: vid,
+								chapterId: chap.id,
+								transcript: transcript.data,
+							},
+						});
+					})
+				);
+			})
+		);
 
 		console.log(output_units);
 		return NextResponse.json({ op: c.id });

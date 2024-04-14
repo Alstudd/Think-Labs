@@ -134,6 +134,7 @@ model Video {
   chapterId  String  @db.ObjectId
   chapter    Chapter @relation(fields: [chapterId], references: [id])
   transcript String
+  summary    String
   Quest      Quest[]
 
   @@map("videos")
