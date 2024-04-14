@@ -34,7 +34,7 @@ export const userDiv = (data) => {
               alt="user icon"
               class="w-10 h-10 rounded-full"
             />
-            <p class="bg-transparent border-2 border-white text-white px-4 py-2 rounded-md shadow-md">
+            <p class="bg-transparent border-2 border-white dark:text-white text-black px-4 py-2 rounded-md shadow-md">
               ${data}
             </p>
           </div>
@@ -46,7 +46,7 @@ export const aiDiv = (data) => {
   return `
   <!-- AI Chat -->
           <div class="flex gap-2 justify-end pl-[130px] my-4">
-            <pre class="bg-transparent border-2 border-white text-white px-4 py-2 rounded-md shadow-md whitespace-pre-wrap">
+            <pre class="bg-transparent border-2 border-white dark:text-white text-black px-4 py-2 rounded-md shadow-md whitespace-pre-wrap">
               ${data}
             </pre>
             <img
@@ -101,15 +101,15 @@ const Chatbot = () => {
   }
 
   return (
-    <div className="w-full min-h-screen flex flex-col p-6">
+    <div className="w-full min-h-screen flex flex-col p-6 mt-16">
       <section>
         <div className="container mx-auto sm:px-4 mt-14">
 
           <div className="relative flex flex-col min-w-0 break-words border bg-transparent border-1 border-gray-300 shadow-md rounded-xl">
             <div style={{marginLeft: "30px"}} className="flex items-center gap-3 mt-6">
               <img src='/LearnBlocksLogo.png' width="30" height="30" />
-              <h5 className="text-lg font-medium text-white mb-0">
-                LearnBlocks AI Chatbot
+              <h5 className="text-lg font-medium dark:text-white text-black mb-0">
+                ThinkLabs AI Chatbot
               </h5>
             </div>
             <div className="flex-auto p-6">
@@ -117,8 +117,8 @@ const Chatbot = () => {
                 <div id="chat-container" ref={chatArea} className="max-h-[67vh] flex flex-col gap-4"></div>
                 <div className="w-full p-2 flex border border- rounded-full py-2 px-4">
                   <form onSubmit={handleSubmit} action="" method="post" className="w-full flex px-3" id="chat-form" ref={chatForm} onKeyUp={handleKeyup}>
-                    <input placeholder="Ask your question?" type="text" name="" ref={userMessage} id="prompt" className="w-full p-1 pb-0 outline-none border-none bg-transparent text-white" />
-                    <button className="text-white" type="submit">Send</button>
+                    <input placeholder="Ask your question?" type="text" name="" ref={userMessage} id="prompt" className="w-full p-1 pb-0 outline-none border-none bg-transparent dark:text-white text-black" />
+                    <button className="dark:text-white text-black" type="submit">Send</button>
                   </form>
                 </div>
               </div>

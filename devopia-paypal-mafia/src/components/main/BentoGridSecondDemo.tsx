@@ -27,8 +27,8 @@ const items = [
   {
     title: "I got the Logic!!",
     description: "Solve puzzles with logic and critical thinking skills.",
-    header: '/fruitGame.png',
-    link: '/logic',
+    header: "/fruitGame.png",
+    link: "/logic",
     className: "md:col-span-2",
     icon: <Link className="h-4 w-4 text-neutral-500" />,
   },

@@ -7,7 +7,7 @@ const CourseSideBar = ({ data, currentChapterId, changeCurrUnit }) => {
   // const chapters = []
   // const videos = []
   return (
-    <div className="w-[400px] absolute top-1/2 -translate-y-1/2 p-6 rounded-r-3xl bg-secondary">
+    <div className="w-[400px] absolute top-1/2 -translate-y-1/2 p-6 rounded-r-3xl bg-secondary mt-4">
       <h1 className="text-4xl font-bold">Course Name</h1>
       {data
         ? data.map((ele, i) => (
@@ -17,7 +17,7 @@ const CourseSideBar = ({ data, currentChapterId, changeCurrUnit }) => {
               </h2>
               <h2 className="text-2xl font-bold">{ele.name}</h2>
               {ele.children.map((cele, index) => (
-                <div key={index}>
+                <div key={index} className="cursor-pointer">
                   <div
                     onClick={()=>{changeCurrUnit(cele.id)}}
                     className={cn("text-secondary-foreground/60", {

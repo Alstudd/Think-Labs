@@ -51,8 +51,9 @@ export default function CoursePage({ params }) {
         <div className="ml-[400px] px-8">
           <div className="flex">
             {data.length > 0 && allUnits.length > 0 && (
-              <MainVideoSummary video={allUnits[currUnit]?.videoId} />
+              <MainVideoSummary video={allUnits[currUnit]} currUnit={currUnit} />
             )}
+            <QuizCards video={allUnits[currUnit]} />
           </div>
 
           <div className="flex-[1] h-[1px] mt-4 text-gray-500 bg-gray-500" />
