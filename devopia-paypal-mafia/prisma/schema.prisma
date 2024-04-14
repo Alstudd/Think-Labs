@@ -134,6 +134,8 @@ model Video {
   chapterId  String  @db.ObjectId
   chapter    Chapter @relation(fields: [chapterId], references: [id])
   transcript String
+  summary    String
+  Quest      Quest[]
 
   @@map("videos")
 }
@@ -176,17 +178,17 @@ model Strength {
 //   @@map("chapters")
 // }
 
-// model Quest {
-//   id        String @id @default(auto()) @map("_id") @db.ObjectId
-//   chapterId String @db.ObjectId
+model Quest {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  videoId String @db.ObjectId
 
-//   question String // @db.Varchar(3000)
-//   answer   String // @db.Varchar(3000)
-//   options  String // @db.Varchar(3000)
-//   chapter  Chapter @relation(fields: [chapterId], references: [id])
+  question String // @db.Varchar(3000)
+  answer   String // @db.Varchar(3000)
+  options  String // @db.Varchar(3000)
+  video    Video  @relation(fields: [videoId], references: [id])
 
-//   @@map("quests")
-// }
+  @@map("quests")
+}
 
 // model Note {
 //   id        String @id @default(auto()) @map("_id") @db.ObjectId
