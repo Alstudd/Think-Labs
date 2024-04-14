@@ -26,7 +26,7 @@ export default function CoursePage({ params }) {
 
 	return (
 		<div>
-			{/* <Navbar /> */}
+			<Navbar />
 			<CourseSideBar data={data} />
 			<div>
 				<div className="ml-[400px] px-8">
