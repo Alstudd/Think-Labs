@@ -1,4 +1,6 @@
+"use client";
 import "../styles/memory.css";
+// import img from '../../public/images/'
 
 export default function MemoryGame() {
 	const cards = document.querySelectorAll(".card");
@@ -56,7 +58,7 @@ export default function MemoryGame() {
 		cards.forEach((card, i) => {
 			card.classList.remove("flip");
 			let imgTag = card.querySelector(".back-view img");
-			imgTag.src = `images/img-${arr[i]}.png`;
+			imgTag.src = `images/img-${arr[i]}.jpeg`;
 			card.addEventListener("click", flipCard);
 		});
 	}
@@ -71,130 +73,130 @@ export default function MemoryGame() {
 			<ul class="cards">
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-1.png" alt="card-img" />
+						<img src="images/img-1.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-6.png" alt="card-img" />
+						<img src="images/img-6.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-3.png" alt="card-img" />
+						<img src="images/img-3.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-2.png" alt="card-img" />
+						<img src="images/img-2.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-1.png" alt="card-img" />
+						<img src="images/img-1.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-5.png" alt="card-img" />
+						<img src="images/img-5.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-2.png" alt="card-img" />
+						<img src="images/img-2.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-6.png" alt="card-img" />
+						<img src="images/img-6.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-3.png" alt="card-img" />
+						<img src="images/img-3.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-4.png" alt="card-img" />
+						<img src="images/img-4.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-5.png" alt="card-img" />
+						<img src="images/img-5.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-4.png" alt="card-img" />
+						<img src="images/img-4.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-4.png" alt="card-img" />
+						<img src="images/img-4.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-4.png" alt="card-img" />
+						<img src="images/img-4.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-4.png" alt="card-img" />
+						<img src="images/img-4.jpeg" alt="card-img" />
 					</div>
 				</li>
 				<li class="card">
 					<div class="view front-view">
-						<img src="images/que_icon.svg" alt="icon" />
+						<img src="images/que_icon.jpeg" alt="icon" />
 					</div>
 					<div class="view back-view">
-						<img src="images/img-4.png" alt="card-img" />
+						<img src="images/img-4.jpeg" alt="card-img" />
 					</div>
 				</li>
 			</ul>

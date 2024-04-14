@@ -78,6 +78,8 @@ const Hero = () => {
           <Image src="/EddieNoBg.png" height={200} className="mb-4" width={200} alt="Eddie" />
         </div>
       </div> */}
+
+      
     </div>
   );
 };

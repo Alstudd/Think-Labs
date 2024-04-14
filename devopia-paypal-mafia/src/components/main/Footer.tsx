@@ -12,7 +12,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-transparent rounded-lg shadow m-4 relative z-[20]">
+    <footer className="bg-transparent rounded-lg shadow mt-4 relative z-[20]">
       <div className="w-full max-w-screen-xl mx-auto p-4">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a
@@ -20,7 +20,7 @@ const Footer = () => {
             className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
           >
             <Image src='/eddieNoBg.png' className="rounded-full my-auto" height={40} width={40} alt="logo"/>
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
               Think Labs
             </span>
           </a>

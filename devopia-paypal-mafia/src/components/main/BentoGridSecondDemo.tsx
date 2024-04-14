@@ -35,7 +35,7 @@ const items = [
   {
     title: "Scramble It Up!!",
     description: "Unscramble words to test vocabulary and spelling skills.",
-    header: '/memcards.jpeg',
+    header: '/scramble.png',
     link: '/wordScramble',
     className: "md:col-span-1",
     icon: <Link className="h-4 w-4 text-neutral-500" />,

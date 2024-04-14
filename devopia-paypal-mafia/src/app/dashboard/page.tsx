@@ -55,31 +55,69 @@ const page = async (props: Props) => {
           <BentoGridSecondDemo />
         </div>
         <div className="my-10 w-[80%] mx-auto grid grid-cols-2 gap-3">
-        <div className="my-auto text-black">
-          <div className=" text-4xl font-bold mb-3">
-            Unlock the Joy of your child&apos;s Learning through Interactive Learning
+          <div className="my-auto text-black">
+            <div className=" text-4xl font-bold mb-3">
+              Unlock the Joy of your child&apos;s Learning through Interactive
+              Learning
+            </div>
+            <p className="">
+              Discover the power of interactive education that engages children
+              and makes learning fun. Our platform combines gamification with
+              educational content to create an immersive experience that sparks
+              curiosity and fosters a love for learning
+            </p>
+            <div className="my-7">
+              <a
+                href="/evaluators-dashboard"
+                className="px-5 py-2 rounded-md text-black border my-7 w-[30%] border-black hover:border-b-4 hover:bg-white hover:font-semibold hover:border-l-4 hover:rounded-lg hover:translate-x-1 hover:-translate-y-1"
+              >
+                Parental Dashboard
+              </a>
+            </div>
           </div>
-          <p className="">
-            Discover the power of interactive education that engages children
-            and makes learning fun. Our platform combines gamification with
-            educational content to create an immersive experience that sparks
-            curiosity and fosters a love for learning
-          </p>
-          <div className="my-7">
-          <a href="/evaluators-dashboard" className="px-5 py-2 rounded-md text-black border my-7 w-[30%] border-black hover:border-b-4 hover:bg-white hover:font-semibold hover:border-l-4 hover:rounded-lg hover:translate-x-1 hover:-translate-y-1">
-            Parental Dashboard
-          </a>
+
+          <Image
+            src="/newWorld.png"
+            className=""
+            width={500}
+            height={500}
+            alt="World"
+          />
+        </div>
+        <div className="my-10 w-[80%] mx-auto grid grid-cols-2 gap-3">
+          <Image
+            src="/dinoRoller.jpeg"
+            className=""
+            width={500}
+            height={500}
+            alt="World"
+          />
+          <div className="my-auto text-black">
+            <div className=" text-4xl font-bold mb-3">
+              Want to learn a new Language
+            </div>
+            <p className="mb-7">Look no further, we got you...</p>
+
+            <form className="w-[200px]">
+              <select
+                id="type"
+                className="bg-gray-50 mb-5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option>Select Language</option>
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Japanese</option>
+              </select>
+
+              <a
+                href="https://thinklabs-ai-teacher.vercel.app/"
+                className="px-5 py-2 rounded-md text-black border my-5 border-black hover:border-b-4 hover:bg-white hover:font-semibold hover:border-l-4 hover:rounded-lg hover:translate-x-1 hover:-translate-y-1"
+              >
+                Submit
+              </a>
+            </form>
           </div>
         </div>
-
-        <Image
-          src="/newWorld.png"
-          className=""
-          width={500}
-          height={500}
-          alt="World"
-        />
-      </div>
       </main>
     </div>
   );
