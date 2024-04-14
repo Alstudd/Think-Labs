@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
 import {
-    BarChart,
+  BarChart,
   BarList,
   Card,
   CategoryBar,
-  LineChart,
   ProgressCircle,
-  Tracker,
 } from "@tremor/react";
 import Image from "next/image";
 
@@ -78,7 +76,6 @@ const TeachersDashboard = () => {
             </div>
           </Card>
         </div>
-
         <div className="flex flex-row gap-3">
           <Image
             src="/eddieSmile.png"
@@ -145,7 +142,7 @@ const TeachersDashboard = () => {
                       No. of Tests
                     </p>
                     <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-                    Child&apos;s test Attempts
+                      Child&apos;s test Attempts
                     </p>
                   </div>
                 </div>
@@ -153,7 +150,6 @@ const TeachersDashboard = () => {
             </div>
           </div>
         </div>
-
         <div className="my-5">
           Student&apos;s Core Performance
           <div className="grid grid-cols-2 gap-3 my-2">
@@ -172,8 +168,8 @@ const TeachersDashboard = () => {
               </div>
               <Card>
                 <p className="text-start mb-4 font-mono text-sm text-slate-500">
-                    Strength
-                  </p>
+                  Strength
+                </p>
                 <BarList
                   data={datahero}
                   sortOrder="ascending"
@@ -196,7 +192,6 @@ const TeachersDashboard = () => {
             </Card>
           </div>
         </div>
-
         <div className="my-5">
           Student&apos;s Recent Performance
           <div className="grid grid-cols-3 gap-3 my-2">
@@ -210,7 +205,7 @@ const TeachersDashboard = () => {
                   </ProgressCircle>
                   <div>
                     <p className="text-tremor-default text-tremor-content-strong dark:text-dark-tremor-content-strong font-medium">
-                      Countries 
+                      Countries
                     </p>
                     <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
                       Test on Countries of the world
@@ -261,7 +256,6 @@ const TeachersDashboard = () => {
             </div>
           </div>
         </div>
-
         {/* <div className="my-7">
           Student Daily Usage
           <div className="grid grid-cols-3 gap-3 my-2">
