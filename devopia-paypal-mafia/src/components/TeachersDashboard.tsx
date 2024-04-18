@@ -101,7 +101,7 @@ const TeachersDashboard = () => {
               </div>
               <p className="text-sm font-normal py-2.5 text-gray-900 ">
                 Your Doing Great!! Keep Working like this and your&apos;e nearly
-                there. <span className="font-bold">"Ribbit"!</span>
+                there. <span className="font-bold">&quot;Ribbit&quot;!</span>
               </p>
               {/* <span className="text-sm font-normal text-gray-500">
                 Delivered

@@ -4,7 +4,7 @@ import axios from "axios";
 import { getTranscript } from "@/lib/youtube";
 import { YoutubeTranscript } from "youtube-transcript";
 
-export default function page() {
+export default function CourseGen() {
 	const [video, setVideo] = useState();
 
 	const getYtData = async () => {
