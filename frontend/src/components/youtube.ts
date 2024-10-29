@@ -7,7 +7,7 @@ export async function searchYoutube(searchQuery: string) {
 	// hello world => hello+world
 	searchQuery = encodeURIComponent(searchQuery);
 	const { data } = await axios.get(
-		`https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&q=${searchQuery}&videoDuration=short&videoEmbeddable=true&type=video&maxResults=1&relevanceLanguage=en`
+		`https://www.googleapis.com/youtube/v3/search?key=${process.env.NEXT_YOUTUBE_API_KEY}&q=${searchQuery}&videoDuration=short&videoEmbeddable=true&type=video&maxResults=1&relevanceLanguage=en`
 	);
 	if (!data || !data.items || data.items.length === 0) {
 		console.log("No data received from YouTube API");
@@ -31,7 +31,7 @@ export async function searchYoutube(searchQuery: string) {
 //   searchQuery = searchQuery.replaceAll(" ", "+");
 //   console.count("youtube search");
 //   const { data } = await axios.get(
-//     `https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&q=${searchQuery}&videoDuration=medium&videoEmbeddable=true&type=video&maxResults=5`
+//     `https://www.googleapis.com/youtube/v3/search?key=${process.env.NEXT_YOUTUBE_API_KEY}&q=${searchQuery}&videoDuration=medium&videoEmbeddable=true&type=video&maxResults=5`
 //   );
 //   if (!data) {
 //     console.log("youtube fail");
